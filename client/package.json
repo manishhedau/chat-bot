@@ -1,5 +1,6 @@
 {
-  "name": "client",
+  "name": "chat-bot-client",
+  "description": "WebSocket-based bot chat system client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
