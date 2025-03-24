@@ -109,5 +109,5 @@ The application will be available at:
 - `npm run watch`: Watch for TypeScript changes
 
 ### Client
-- `npm start`: Run client in development mode
+- `npm run dev`: Run client in development mode
 - `npm run build`: Build client for production
