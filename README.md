@@ -39,8 +39,7 @@ A real-time chat application with bot responses and multi-client database segreg
 │   ├── .env            # TypeScript configuration
 │   ├── tsconfig.json   # TypeScript configuration
 │   └── package.json    # Backend dependencies
-├── README.md           # Readme file
-└── package.json        # Root project configuration
+└── README.md        # Readme file
 ```
 
 ## Prerequisites
@@ -57,19 +56,26 @@ A real-time chat application with bot responses and multi-client database segreg
    cd chat-bot-system
    ```
 
-2. Install all dependencies:
+2. Install all client dependencies:
    ```bash
-   npm run install:all
+   cd client
+   npm install
    ```
 
-3. Create a `.env` file in the server directory:
+3. Install all server dependencies:
+   ```bash
+   cd server
+   npm install
+   ```
+
+4. Create a `.env` file in the server directory:
    ```
    PORT=8080
    MONGODB_URI_CLIENT1=mongodb://localhost:27017/client1-db
    MONGODB_URI_CLIENT2=mongodb://localhost:27017/client2-db
    JWT_SECRET=your_jwt_secret_key_here
    ```
-4. Create a `.env` file in the client directory:
+5. Create a `.env` file in the client directory:
    ```
    VITE_APP_API_URL=http://localhost:8080/api
    VITE_APP_SOCKET_URL=http://localhost:8080
@@ -77,23 +83,27 @@ A real-time chat application with bot responses and multi-client database segreg
 
 ## Running the Application
 
-1. Development mode (both frontend and backend):
+1. Development mode (client only):
    ```bash
-   npm start
+   cd client
+   npm run dev 
    ```
 
 2. Development mode (server only):
    ```bash
-   npm run server
+   cd server
+   npm run dev 
    ```
 
-3. Development mode (client only):
+3. Production build (Client only):
    ```bash
-   npm run client
+   cd client
+   npm run build
    ```
 
-4. Production build:
+4. Production build (Server only):
    ```bash
+   cd server
    npm run build
    ```
 

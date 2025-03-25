@@ -36,14 +36,15 @@ const Login = ({ onLogin, onToggleForm }: LoginProps) => {
                 }
             );
 
-            const { data } = await response.json();
+            const data = await response.json();
 
             if (!response.ok) {
                 throw new Error(data.message || "Login failed");
             }
 
-            onLogin(data.token);
-            localStorage.setItem("chatToken", data.token);
+            const responseData = data.data;
+            onLogin(responseData.token);
+            localStorage.setItem("chatToken", responseData.token);
             localStorage.setItem("clientId", formData.clientId);
         } catch (error) {
             setError(error instanceof Error ? error.message : "Login failed");

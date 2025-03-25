@@ -45,14 +45,15 @@ const Register = ({ onRegister, onToggleForm }: RegisterProps) => {
                 }
             );
 
-            const { data } = await response.json();
+            const data  = await response.json();
 
             if (!response.ok) {
                 throw new Error(data.message || "Registration failed");
             }
 
-            onRegister(data.token);
-            localStorage.setItem("chatToken", data.token);
+            const responseData = data.data;
+            onRegister(responseData.token);
+            localStorage.setItem("chatToken", responseData.token);
             localStorage.setItem("clientId", formData.clientId);
         } catch (error) {
             setError(error instanceof Error ? error.message : "Registration failed");
